@@ -4,12 +4,8 @@ using namespace std;
 int n, nr;
 int main()
 {
-    //freopen("arbo.in", "r", stdin);
-   // freopen("arbo.out", "w", stdout);
-
     cin >> n;
     cout<<n;
-    
     while (n % 2 == 0)
     {
         n = n / 2;
