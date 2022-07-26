@@ -17,19 +17,19 @@ with open("madlib\\reduceri.txt") as f:
         cuv = line.split()
         print (cuv)
         contor=0
-    
-        
         for litera in cuv:
             first_char = ""
-            last_char = ""
-            contor+=1
             for i in range(0, 1):
                 first_char = first_char + litera[i]
             #print("First character:", first_char)
+            '''
             
-            if first_char is '<':
+            '''
+            #if first_char is "<":
+            if litera.startswith("<"):
                 #print("write a:", lines[first_ct:last_ct])
-                print("write a", lines[index_of(first_char):len[cuv]])
+                print("write a", litera[0:litera.find(">")+1])
+                input()
         
         
         #............
