@@ -20,25 +20,33 @@ class WordChecker:
     # Updates the internal state of the checker with a new hint
     def update(self, hint, hint_word=None):
         print(f"TODO: WordChecker adding the hint: '{hint}'.")
-    '''
-    dictionar pe litere, adaugam culoarer si pozitii,
-    primim ca parametru "hint " cu tilda plusuri si minusuri si tilda
-    '''
+        '''
+        dictionar pe litere, adaugam culoarer si pozitii,
+        primim ca parametru "hint " cu tilda plusuri si minusuri si tilda
+        '''
         
-        hint_word=list(hint)
+        self.hint_word=list(self.hint)
         for i in range (10):
-            if i%2==0:
-                if dictionar[hint_word[i+1]] == "unknown":
-                    dictionar.pop(hint_word[i+1])
-                if hint_word[i]=="+":
-                    dictionar[litere[i+1]]="green"
-                    dictionar[litere[i+1]]= (i+1)//2
-                elif hint_word[i]=="-":
-                    dictionar[litere[i+1]]="grey"
-                    dictionar[litere[i+1]]= (i+1)//2
-                elif hint_word[i]=="~":
-                    dictionar[litere[i+1]]="yellow"
-                    dictionar[litere[i+1]]= (i+1)//2
+            if i%2==0:                                          #if we reset
+                if dictionar[self.hint_word[i+1]] == "unknown" #or dictionar[self.hint_word[i+1]=="yellow" and dictionar[hint_word[i]]=="+"]:
+                    dictionar.pop(self.hint_word[i+1])
+                    #dictionar[hint_word[i+1]]={}#SET
+                if self.hint_word[i]=="+":
+                    dictionar[self.hint_word[i+1]].add("green")
+                    dictionar[self.hint_word[i+1]].add( ((i+1)//2)+1)
+                    #corp.add("green", ((i+1)//2)+1)
+                    #dictionar[hint_word[i+1]].values().add(((i+1)//2)+1)
+                elif self.hint_word[i]=="-":
+                    dictionar[self.hint_word[i+1]].add("grey")
+                    dictionar[self.hint_word[i+1]].add(((i+1)//2)+1)
+                    #corp.add("grey",((i+1)//2)+1)
+                    #dictionar[hint_word[i+1]].values().add(((i+1)//2)+1) 
+                elif self.hint_word[i]=="~":
+                    dictionar[self.hint_word[i+1]].add("yellow")
+                    dictionar[self.hint_word[i+1]].add(((i+1)//2)+1)
+                    #corp.add("yellow",((i+1)//2)+1)
+                    #dictionar[hint_word[i+1]].values().add(((i-1)//2)+1) 
+            else: continue
         
     
     
