@@ -22,4 +22,4 @@ def starts_in ():
             print(contor_litere, "incep cu ", litere[contor] )
             contor+=1
             contor_litere=0   
-starts_in()
+starts_in ()
