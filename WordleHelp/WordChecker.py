@@ -17,10 +17,10 @@ class WordChecker:
     def update(self, hint):
         print(f"TODO: WordChecker adding the hint: '{hint}'.")
         '''
-        dictionar pe litere, adaugam culoarer si pozitii,
+        dictionar pe litere, adaugam culoare si pozitii,
         primim ca parametru "hint " cu tilda plusuri si minusuri si tilda
         '''
-        
+        #+c-h~a-i-r
         hint_word=list(hint)
         for i in range (0,10,2):
             if self.dictionar[hint_word[i+1]] == "unknown": #or dictionar[self.hint_word[i+1]=="yellow" and dictionar[hint_word[i]]=="+"]:
@@ -37,15 +37,30 @@ class WordChecker:
     
      ###
      # Checks whether a given word matches all known hints
-    def check(self, word):
+    def check(self, word, dictionar):
         for l in word:
             if "green" not in self.dictionar[l]:
                 return False
-                
-        return True
+        #filter bazza de date pt litere grey
+        f= open("stats\\words.txt")
+        dictionar_cuvinte = {}
+        lines = f.readlines()
+        for line in lines:      #Tinder de cuvinte
+            cuv = line.split()
+            for i in range(1) :
+                dictionar_cuvinte[cuv[0]]=cuv[1]
+        for cuv in dictionar_cuvinte.keys():        #not good   TO BE DONE
+            for lit in dictionar.keys():
+                if "grey" in lit and  lit in cuv:
+                    return False
+                for i in range(10):
+                    if lit is "yellow"  and cuv[dictionar.index("yellow")+1] ==lit:
+                        return False
+        return True    
         
-    ###
-    # Returns a string representation of the entire object
+        
+        ###
+        # Returns a string representation of the entire object
     def __str__(self):
         return f"TODO: WordChecker internal state."
 
