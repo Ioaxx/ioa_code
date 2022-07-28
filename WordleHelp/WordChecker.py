@@ -13,7 +13,7 @@ class WordChecker:
             self.dictionar[chr(l)] = "unknown" 
 
     ###
-    # Updates the internal state of the checker with a new hint
+    # Updates the internal state of the checker with a new hint FINISHED
     def update(self, hint):
         print(f"TODO: WordChecker adding the hint: '{hint}'.")
         '''
@@ -47,7 +47,7 @@ class WordChecker:
         lines = f.readlines()
         for line in lines:      #Tinder de cuvinte
             cuv = line.split()
-            for i in range(1) :
+            for i in range(100) :   #100 vor fi 
                 dictionar_cuvinte[cuv[0]]=cuv[1]
         for cuv in dictionar_cuvinte.keys():        #not good   TO BE DONE
             for lit in dictionar.keys():
